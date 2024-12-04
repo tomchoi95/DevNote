@@ -19,3 +19,20 @@ dump(greeting)
 된다네
  */
 
+var name = "Swift"
+var thisYear = 2024
+var valid = false
+
+/*
+ cmael case
+ UpperCamelCase 클래스, 구조체, 열거형, 익스텐션
+ lowerCamelCase 변수, 상수, 함수, 프로퍼티, 파라메터
+ */
+
+let address = "Seoul"
+address
+// address = "Gumi" 오류가 나는데 상수로 선언이 되었기 때문에 변경 불가.
+name = "Tom"
+// 변수는 타입이 같다면 변경 가능.
+
+
