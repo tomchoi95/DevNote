@@ -71,13 +71,47 @@ class ViewController: UIViewController {
     @IBOutlet weak var operatorButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
     @IBAction func selectOperator(_ sender: Any) {
+        let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let plusActionn = UIAlertAction(title: "➕", style: .default) { _ in
+            self.operatorButton.setTitle("➕", for: .normal)
+        }
+        let minusActionn = UIAlertAction(title: "➖", style: .default) { _ in
+            self.operatorButton.setTitle("➖", for: .normal)
+        }
+        let multiplyActionn = UIAlertAction(title: "✖️", style: .default) { _ in
+            self.operatorButton.setTitle("✖️", for: .normal)
+        }
+        let divideActionn = UIAlertAction(title: "/", style: .default) { _ in
+            self.operatorButton.setTitle("/", for: .normal)
+        }
         
+        actionSheet.addAction(plusActionn)
+        actionSheet.addAction(minusActionn)
+        actionSheet.addAction(multiplyActionn)
+        actionSheet.addAction(divideActionn)
+        
+        present(actionSheet, animated: true)
     }
     @IBAction func calculate(_ sender: Any) {
         let a = Int(firstOperandField.text!)!
         let b = Int(secondOperandField.text!)!
-        let result = a + b
-        resultLabel.text = "\(result)"
+        let op = operatorButton.title(for: .normal) // op 상수에 버튼의 문자열 저장.
+        
+        if op == "+" {
+            let result = a + b
+            resultLabel.text = "\(result)"
+        } else if op == "-" {
+            let result = a - b
+            resultLabel.text = "\(result)"
+        } else if op == "*" {
+            let result = a * b
+            resultLabel.text = "\(result)"
+        } else if op == "/" {
+            let result = a / b
+            resultLabel.text = "\(result)"
+        } else { // 연산자를 선택하지 않고 계산을 눌렀을 때 실행 할 코드
+            print("연산자 선택")
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,4 +152,34 @@ aa % bb // 나머지 연산자 %
 cc.truncatingRemainder(dividingBy: dd)
 // Double.truncatingRemainder(dividingBy:) //를 이용하면 실수도 나머지 구할 수 있음.
 
- 
+aa == bb
+aa != bb
+aa > bb
+aa >= bb
+aa < bb
+aa <= bb
+
+// 조건 == condition == boolean expression
+if num % 2 == 0 {
+    print("짝수")
+} else {
+    print("홀수")
+}
+
+let weekday = Calendar.current.component(.weekday, from: .now) // 요일을 다룸. Calendar 함 보자.
+
+if weekday == 1 {
+    print("일요일")
+} else if weekday == 2 {
+    print("월요일")
+} else if weekday == 3 {
+    print("화요일")
+} else if weekday == 4  {
+    print("수요일")
+} else if weekday == 5 {
+    print("목요일")
+} else if weekday == 6 {
+    print("금요일")
+} else if weekday == 7 {
+    print("토요일")
+}
