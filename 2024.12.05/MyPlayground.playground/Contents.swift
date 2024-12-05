@@ -63,8 +63,8 @@ let lon: Coordinate = 45.67
  오토레이아웃. 제약(constraint)
  */
 
-// ViewContriller
-
+// 계산기 - ViewContriller
+/*
 class ViewController: UIViewController {
     @IBOutlet weak var firstOperandField: UITextField!
     @IBOutlet weak var secondOperandField: UITextField!
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
     }
     
 }
-
+*/
 // 연산자.
 // 단향연산자는 공백이 중요 ex) +a , + a 는 다름.
 // 이항연산자. a+b와 a + b 는 같음. 띄어쓰기 상관 안함. but a+ b, a +b 는 안됌.
@@ -183,3 +183,31 @@ if weekday == 1 {
 } else if weekday == 7 {
     print("토요일")
 }
+
+// 로그인 - ViewController
+
+class ViewController: UIViewController {
+    @IBOutlet weak var idField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var resultLabel: UILabel!
+    @IBAction func login(_ sender: Any) {
+        let id = idField.text!
+        let password = passwordField.text!
+        
+        if id == "kxcoding" {
+            if password == "1234" {
+                resultLabel.text = "로그인 성공"
+            } else {
+                resultLabel.text = "로그인 실패"
+            }
+        } else {
+            resultLabel.text = "로그인 실패"
+        }
+    }
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}
+
