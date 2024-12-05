@@ -67,16 +67,55 @@ let lon: Coordinate = 45.67
 
 class ViewController: UIViewController {
     @IBOutlet weak var firstOperandField: UITextField!
+    @IBOutlet weak var secondOperandField: UITextField!
     @IBOutlet weak var operatorButton: UIButton!
     @IBOutlet weak var resultLabel: UILabel!
     @IBAction func selectOperator(_ sender: Any) {
         
     }
     @IBAction func calculate(_ sender: Any) {
-        
+        let a = Int(firstOperandField.text!)!
+        let b = Int(secondOperandField.text!)!
+        let result = a + b
+        resultLabel.text = "\(result)"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
 }
+
+// 연산자.
+// 단향연산자는 공백이 중요 ex) +a , + a 는 다름.
+// 이항연산자. a+b와 a + b 는 같음. 띄어쓰기 상관 안함. but a+ b, a +b 는 안됌.
+// a + b * c 에서 곱하기 먼저 연산됨. 곱하기 연산자의 우선순위가 더하기 연산자의 우선순위보다 높다.
+// 괄호로 우선순위 지정 가능.
+
+let aa = 12
+let bb = 34
+
++a // 전치 연산자, prefix Operator
+aa + bb
+
+12 + 34
+aa + 56 // 타입만 맞춘다면 literal, 식별자 섞어서 쓸 수 있음.
+
+-aa
+-bb
+aa - bb
+aa * bb
+aa / bb
+bb / aa
+
+let cc = Double(aa)
+let dd = Double(bb)
+
+cc / dd
+dd / cc
+
+aa % bb // 나머지 연산자 %
+// cc % dd // 나머지 연산자는 실수를 지원하지 않음.
+cc.truncatingRemainder(dividingBy: dd)
+// Double.truncatingRemainder(dividingBy:) //를 이용하면 실수도 나머지 구할 수 있음.
+
+ 
