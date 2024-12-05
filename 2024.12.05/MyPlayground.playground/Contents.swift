@@ -194,11 +194,17 @@ class ViewController: UIViewController {
         let id = idField.text!
         let password = passwordField.text!
         
-        if id.isEmpty || password.isEmpty {
-            // 경고창
+//        if id.isEmpty || password.isEmpty {
+//            // 경고창
+//            print("계정을 입력하세요")
+//            return
+//        }
+        // Early Exit
+        guard !(id.isEmpty || password.isEmpty) else {
             print("계정을 입력하세요")
             return
         }
+        // guard의 장점: if로 하면 중첩시키는 것을 간단하게 해결할 수 있다.
         
         if id == "kxcoding" {
             if password == "1234" {
@@ -237,3 +243,6 @@ false || false
 
 // condition : expr1 ? expr2
 // 앞에 있는 컨디션의 조건 참 expr1, 거짓 expr2
+
+// guard
+// guard condition else { }
