@@ -15,7 +15,33 @@ let str = ""
 str.isEmpty // 이름만 봐도 타임을 어느정도 유추할 수가 있다.
 
 let num = 123
-print(type(of: num)) //타입을 알려면 type(of:)를 사용하면 타임을 알 수 있다.
+// print(type(of: num)) //타입을 알려면 type(of:)를 사용하면 타임을 알 수 있다.
 
 // 위의 123은 컴파일러가 추론함. 형식 추론.
+
+let oneChar: Character = "1"
+// let doubleCh: Character = "AA" or "" 오류남. 캐랙터는 1자.
+
+let rate: Double = 1.94
+let amt = 10_000_000
+let result = rate * Double(amt)
+
+// Type Conversion  타입 변환 // Type(value)
+
+let a = 123.45
+let b = Int8(a)
+Int8.max
+
+let d = Int.max
+// let e = Int8(d) // 타입컨버젼 실패. 크래쉬남. 큰타입에서 작은타입으로 변환은 최대한 하지 말자.
+
+let st = "number"
+let numb = Int(st) // 컨버젼 실패해서 nil 반환.
+
+// typealias 를 이용하여 더블타입을 코디네이트로 바꾸어보자.
+typealias Coordinate = Double // 코디네이트는 더블타입임.
+
+let lat: Coordinate = 12.34
+let lon: Coordinate = 45.67
+
 
