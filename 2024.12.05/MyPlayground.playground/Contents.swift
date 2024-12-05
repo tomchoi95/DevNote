@@ -194,6 +194,12 @@ class ViewController: UIViewController {
         let id = idField.text!
         let password = passwordField.text!
         
+        if id.isEmpty || password.isEmpty {
+            // 경고창
+            print("계정을 입력하세요")
+            return
+        }
+        
         if id == "kxcoding" {
             if password == "1234" {
                 resultLabel.text = "로그인 성공"
@@ -211,3 +217,23 @@ class ViewController: UIViewController {
     
 }
 
+// 논리 연산자 logical operator
+// Logical AND == &&
+true && true
+true && false
+false && true
+false && false
+
+// Logicla OR == ||
+
+true || true
+true || false
+false || true
+false || false
+
+// Logical not == !
+!false
+!true
+
+// condition : expr1 ? expr2
+// 앞에 있는 컨디션의 조건 참 expr1, 거짓 expr2
